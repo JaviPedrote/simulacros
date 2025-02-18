@@ -15,6 +15,9 @@ const Quiz = () => {
   const [shuffledOptions, setShuffledOptions] = useState([]);
   const [showNext, setShowNext] = useState(false);
   const [nota, setNota] = useState(0);
+ // Nuevo estado para controlar si ya se contestó la pregunta
+  const [answered, setAnswered] = useState(false);
+  const [count, setCount] = useState(0);
 
   // Calcular la nota según las preguntas totales.
   useEffect(() => {
@@ -45,19 +48,23 @@ const Quiz = () => {
 
   // Manejar la respuesta elegida.
   const handleAnswer = (isCorrect) => {
-    if (isCorrect) {
-      setScore(score + 1);
-      setFeedback({ message: "¡Correcto!", correct: true });
-    } else {
-      const correctAnswer = questions[currentQuestion].options.find(
-        (option) => option.correct
-      ).text;
-      setFeedback({
-        message: `Respuesta correcta:  ${correctAnswer}`,
-        correct: false,
-      });
+    // Evitar que se conteste varias veces
+    if (!answered) {
+      if (isCorrect) {
+        setScore((prev) => prev + 1);
+        setFeedback({ message: "¡Correcto!", correct: true });
+      } else {
+        const correctAnswer = questions[currentQuestion].options.find(
+          (option) => option.correct
+        ).text;
+        setFeedback({
+          message: `Respuesta correcta: ${correctAnswer}`,
+          correct: false,
+        });
+      }
+      setShowNext(true);
+      setAnswered(true); // Bloqueamos más clicks
     }
-    setShowNext(true);
   };
 
   // Ir a la siguiente pregunta o mostrar la puntuación final.
@@ -70,6 +77,7 @@ const Quiz = () => {
       );
       setFeedback(null);
       setShowNext(false);
+      setAnswered(false); // Vuelve a permitir respuesta
     } else {
       setShowScore(true);
     }
@@ -143,7 +151,7 @@ const Quiz = () => {
       ) : (
         // Pantalla de preguntas
         <div>
-          <div className="text-xs w-full text-left">{category}</div>
+          <div className="text-xs w-full text-left flex place-content-between">{category} <div><h2 className="font-semibold">Respuestas correctas: {score} / 40</h2><h2>Pregunta nº : {currentQuestion+1} de 40</h2></div></div>
           <h2 className="md:text-lg text-md font-semibold text-gray-700">
             {questions[currentQuestion]?.question}
           </h2>
@@ -172,7 +180,7 @@ const Quiz = () => {
           {showNext && (
             <button
               onClick={nextQuestion}
-              className="mt-4 bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-700"
+              className="mt-4 bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-700 cursor-pointer"
             >
               Siguiente
             </button>
