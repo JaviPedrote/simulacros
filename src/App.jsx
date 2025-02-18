@@ -147,12 +147,12 @@ const Quiz = () => {
           <h2 className="md:text-lg text-md font-semibold text-gray-700">
             {questions[currentQuestion]?.question}
           </h2>
-          <div className="mt-4 space-y-2">
+          <div className="mt-4 space-y-4">
             {shuffledOptions.map((option, index) => (
               <button
                 key={index}
                 onClick={() => handleAnswer(option.correct)}
-                className="block w-full text-left p-2 bg-gray-100 rounded hover:bg-gray-300 cursor-pointer"
+                className="block w-full md:text-md text-sm text-left p-2 bg-gray-100 rounded hover:bg-gray-300 cursor-pointer"
               >
                 {option.text}
               </button>
