@@ -143,6 +143,7 @@ const Quiz = () => {
       ) : (
         // Pantalla de preguntas
         <div>
+          <div className="text-xs w-full text-left">{category}</div>
           <h2 className="text-lg font-semibold text-gray-700">
             {questions[currentQuestion]?.question}
           </h2>
