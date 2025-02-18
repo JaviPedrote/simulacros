@@ -4,6 +4,9 @@ import { quizCategories } from "./data/quizCategories";
 const shuffleArray = (array) => array.sort(() => Math.random() - 0.5);
 
 const Quiz = () => {
+
+  // Nuevo estado para las preguntas fallidas.
+  const [failedQuestions, setFailedQuestions] = useState([]);
   const [category, setCategory] = useState(null);
   // Nuevo estado para las preguntas seleccionadas (máximo 40).
   const [questions, setQuestions] = useState([]);
@@ -17,7 +20,7 @@ const Quiz = () => {
   const [nota, setNota] = useState(0);
   // Nuevo estado para controlar si ya se contestó la pregunta
   const [answered, setAnswered] = useState(false);
-  const [count, setCount] = useState(0);
+
 
   // Calcular la nota según las preguntas totales.
   useEffect(() => {
@@ -29,26 +32,25 @@ const Quiz = () => {
   }, [score, questions]);
 
   // Iniciar el quiz, tomando hasta 40 preguntas aleatorias.
-  const startQuiz = (selectedCategory) => {
-    const allQuestions = quizCategories[selectedCategory];
+  const startQuiz = (selectedCategory, customQuestions = null) => {
+    const allQuestions = customQuestions || quizCategories[selectedCategory];
     const shuffledAll = shuffleArray([...allQuestions]);
-    // Escoge las primeras 40 tras mezclar (o menos si no hay tantas).
     const finalQuestions = shuffledAll.slice(0, 40);
 
     setCategory(selectedCategory);
     setQuestions(finalQuestions);
+    setFailedQuestions([]);
     setCurrentQuestion(0);
     setScore(0);
     setShowScore(false);
     setFeedback(null);
     setShowNext(false);
-    // Mezclar opciones de la primera pregunta.
     setShuffledOptions(shuffleArray([...finalQuestions[0].options]));
+    setAnswered(false); 
   };
 
   // Manejar la respuesta elegida.
   const handleAnswer = (isCorrect) => {
-    // Evitar que se conteste varias veces
     if (!answered) {
       if (isCorrect) {
         setScore((prev) => prev + 1);
@@ -61,9 +63,11 @@ const Quiz = () => {
           message: `Respuesta correcta: ${correctAnswer}`,
           correct: false,
         });
+        // Añadir la pregunta fallada
+        setFailedQuestions((prev) => [...prev, questions[currentQuestion]]);
       }
       setShowNext(true);
-      setAnswered(true); // Bloqueamos más clicks
+      setAnswered(true);
     }
   };
 
@@ -80,6 +84,14 @@ const Quiz = () => {
       setAnswered(false); // Vuelve a permitir respuesta
     } else {
       setShowScore(true);
+    }
+  };
+
+  // Función para reiniciar solo las preguntas falladas
+  const retryFailedQuestions = () => {
+    if (failedQuestions.length > 0) {
+      // Se puede usar el mismo category o un específico si se desea.
+      startQuiz(category, failedQuestions);
     }
   };
 
@@ -147,11 +159,19 @@ const Quiz = () => {
             >
               Volver al menú
             </button>
+            {failedQuestions.length > 0 && (
+            <button
+              onClick={retryFailedQuestions}
+              className="mt-4 ml-2 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-700 cursor-pointer"
+            >
+              Reintentar preguntas falladas
+            </button>
+          )}
           </div>
         ) : (
           // Pantalla de preguntas
           <div>
-            <div className="mb-5 text-xs w-full text-left flex place-content-between xl:pt-9"><span className="text-gray-400 text-[70%]">{category}</span> <div>Pregunta nº : {currentQuestion + 1} / 40 <div className="font-semibold">Correctas: {score}</div></div></div>
+            <div className="mb-5 text-xs w-full text-left flex place-content-between xl:pt-9"><span className="text-gray-400 text-[70%]">{category}</span> <div>Pregunta nº : {currentQuestion + 1}<div className="font-semibold">Correctas: {score}</div></div></div>
             <h2 className="md:text-lg text-md font-semibold text-gray-700">
               {questions[currentQuestion]?.question}
             </h2>
