@@ -76,7 +76,7 @@ const Quiz = () => {
   };
 
   return (
-    <div className="p-6 md:max-w-[90%] mx-auto bg-white rounded-xl shadow-md space-y-4 text-center">
+    <div className="p-6 md:max-w-[60%] max-w-[90%] mx-auto bg-white rounded-xl shadow-md space-y-4 text-center">
       {/* Menú de inicio: escoger simulacro */}
       {!category ? (
         <div>
