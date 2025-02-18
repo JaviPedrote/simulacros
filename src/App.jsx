@@ -53,7 +53,7 @@ const Quiz = () => {
         (option) => option.correct
       ).text;
       setFeedback({
-        message: `Incorrecto. La respuesta correcta es: ${correctAnswer}`,
+        message: `Respuesta correcta:  ${correctAnswer}`,
         correct: false,
       });
     }
@@ -76,49 +76,49 @@ const Quiz = () => {
   };
 
   return (
-    <div className="p-6 md:max-w-[60%] max-w-[90%] mx-auto bg-white rounded-xl shadow-md space-y-4 text-center">
+    <div className="p-6 xl:max-w-[80%] max-w-[95%] mx-auto bg-white rounded-xl shadow-md space-y-4 text-center">
       {/* Menú de inicio: escoger simulacro */}
       {!category ? (
         <div>
           <h2 className="text-xl font-bold">Selecciona un simulacro</h2>
           <button
-            className="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700"
+            className="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 cursor-pointer"
             onClick={() => startQuiz("acceso_datos")}
           >
             Acc Datos
           </button>
           <button
-            className="mt-4 ml-2 bg-green-600 text-white px-4 py-2 rounded hover:bg-green-800"
+            className="mt-4 ml-2 bg-green-600 text-white px-4 py-2 rounded hover:bg-green-800 cursor-pointer"
             onClick={() => startQuiz("desarrollo_interfaces")}
           >
             Des de Interfaces
           </button>
           <button
-            className="mt-4 ml-2 bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-700"
+            className="mt-4 ml-2 bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-700 cursor-pointer"
             onClick={() => startQuiz("empresa")}
           >
             Empresa
           </button>
           <button
-            className="mt-4 ml-2 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-700"
+            className="mt-4 ml-2 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-700 cursor-pointer"
             onClick={() => startQuiz("ingles")}
           >
             Ingles
           </button>
           <button
-            className="mt-4 ml-2 bg-fuchsia-600 text-white px-4 py-2 rounded hover:bg-fuchsia-800"
+            className="mt-4 ml-2 bg-fuchsia-600 text-white px-4 py-2 rounded hover:bg-fuchsia-800 cursor-pointer"
             onClick={() => startQuiz("progr_serv_proces")}
           >
             Prog Ser Proc
           </button>
           <button
-            className="mt-4 ml-2 bg-emerald-600 text-white px-4 py-2 rounded hover:bg-emerald-800"
+            className="mt-4 ml-2 bg-emerald-600 text-white px-4 py-2 rounded hover:bg-emerald-800 cursor-pointer"
             onClick={() => startQuiz("progr_mult_dispos_moviles")}
           >
             Prog M y Disp Mov
           </button>
           <button
-            className="mt-4 ml-2 bg-cyan-600 text-white px-4 py-2 rounded hover:bg-cyan-800"
+            className="mt-4 ml-2 bg-cyan-600 text-white px-4 py-2 rounded hover:bg-cyan-800 cursor-pointer"
             onClick={() => startQuiz("sist_gest_empres")}
           >
             Sist Gest Empres
@@ -135,7 +135,7 @@ const Quiz = () => {
           </h2>
           <button
             onClick={() => setCategory(null)}
-            className="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700"
+            className="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 cursor-pointer"
           >
             Volver al menú
           </button>
@@ -151,7 +151,7 @@ const Quiz = () => {
               <button
                 key={index}
                 onClick={() => handleAnswer(option.correct)}
-                className="block w-full text-left p-2 bg-gray-100 rounded hover:bg-gray-300"
+                className="block w-full text-left p-2 bg-gray-100 rounded hover:bg-gray-300 cursor-pointer"
               >
                 {option.text}
               </button>
