@@ -152,7 +152,7 @@ const Quiz = () => {
               <button
                 key={index}
                 onClick={() => handleAnswer(option.correct)}
-                className="block w-full md:text-md text-sm text-left p-2 bg-gray-100 rounded hover:bg-gray-300 cursor-pointer"
+                className="block w-full md:text-lg text-sm text-left p-2 bg-gray-100 rounded hover:bg-gray-300 cursor-pointer"
               >
                 {option.text}
               </button>
