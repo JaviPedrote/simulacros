@@ -15,7 +15,7 @@ const Quiz = () => {
   const [shuffledOptions, setShuffledOptions] = useState([]);
   const [showNext, setShowNext] = useState(false);
   const [nota, setNota] = useState(0);
- // Nuevo estado para controlar si ya se contestó la pregunta
+  // Nuevo estado para controlar si ya se contestó la pregunta
   const [answered, setAnswered] = useState(false);
   const [count, setCount] = useState(0);
 
@@ -133,60 +133,59 @@ const Quiz = () => {
           </button>
         </div>
       ) : // Mostrar resultados al terminar
-      showScore ? (
-        <div>
-          <h2 className="text-xl font-bold text-green-600">
-            Tu puntuación: {score} / {questions.length}
-          </h2>
-          <h2 className="text-xl font-bold text-green-600">
-            Tu nota: {nota.toFixed(2)}
-          </h2>
-          <button
-            onClick={() => setCategory(null)}
-            className="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 cursor-pointer"
-          >
-            Volver al menú
-          </button>
-        </div>
-      ) : (
-        // Pantalla de preguntas
-        <div>
-          <div className="text-xs w-full text-left flex place-content-between">{category} <div><h2 className="font-semibold">Respuestas correctas: {score} / 40</h2><h2>Pregunta nº : {currentQuestion+1} de 40</h2></div></div>
-          <h2 className="md:text-lg text-md font-semibold text-gray-700">
-            {questions[currentQuestion]?.question}
-          </h2>
-          <div className="mt-4 space-y-4">
-            {shuffledOptions.map((option, index) => (
-              <button
-                key={index}
-                onClick={() => handleAnswer(option.correct)}
-                className="block w-full md:text-lg text-sm text-left p-2 bg-gray-100 rounded hover:bg-gray-300 cursor-pointer"
-              >
-                {option.text}
-              </button>
-            ))}
-          </div>
-          {feedback && (
-            <p
-              className={`mt-4 p-2 rounded ${
-                feedback.correct
-                  ? "bg-green-200 text-green-700"
-                  : "bg-red-200 text-red-700"
-              }`}
-            >
-              {feedback.message}
-            </p>
-          )}
-          {showNext && (
+        showScore ? (
+          <div>
+            <h2 className="text-xl font-bold text-green-600">
+              Tu puntuación: {score} / {questions.length}
+            </h2>
+            <h2 className="text-xl font-bold text-green-600">
+              Tu nota: {nota.toFixed(2)}
+            </h2>
             <button
-              onClick={nextQuestion}
-              className="mt-4 bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-700 cursor-pointer"
+              onClick={() => setCategory(null)}
+              className="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 cursor-pointer"
             >
-              Siguiente
+              Volver al menú
             </button>
-          )}
-        </div>
-      )}
+          </div>
+        ) : (
+          // Pantalla de preguntas
+          <div>
+            <div className="mb-5 text-xs w-full text-left flex place-content-between xl:pt-9"><span className="text-gray-400 text-[70%]">{category}</span> <div>Pregunta nº : {currentQuestion + 1} / 40 <div className="font-semibold">Correctas: {score}</div></div></div>
+            <h2 className="md:text-lg text-md font-semibold text-gray-700">
+              {questions[currentQuestion]?.question}
+            </h2>
+            <div className="mt-4 space-y-4">
+              {shuffledOptions.map((option, index) => (
+                <button
+                  key={index}
+                  onClick={() => handleAnswer(option.correct)}
+                  className="block w-full md:text-lg text-sm text-left p-2 bg-gray-100 rounded hover:bg-gray-300 cursor-pointer"
+                >
+                  {option.text}
+                </button>
+              ))}
+            </div>
+            {feedback && (
+              <p
+                className={`mt-4 p-2 rounded ${feedback.correct
+                    ? "bg-green-200 text-green-700"
+                    : "bg-red-200 text-red-700"
+                  }`}
+              >
+                {feedback.message}
+              </p>
+            )}
+            {showNext && (
+              <button
+                onClick={nextQuestion}
+                className="mt-4 bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-700 cursor-pointer"
+              >
+                Siguiente
+              </button>
+            )}
+          </div>
+        )}
     </div>
   );
 };
