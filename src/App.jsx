@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { quizCategories } from "./data/quizCategories";
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 
 
@@ -101,6 +102,7 @@ const Quiz = () => {
   return (
     <div className="p-6 xl:max-w-[80%] max-w-[95%] mx-auto bg-white rounded-xl shadow-md space-y-4 text-center">
       <Analytics/>
+      <SpeedInsights/>
       {/* Menú de inicio: escoger simulacro */}
       {!category ? (
         <div>
