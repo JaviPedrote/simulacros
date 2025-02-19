@@ -4727,15 +4727,15 @@ export const quizCategories = {
       question: "Direct Style: “Could you explain number four, please?”",
       options: [
         {
-          text: "She claim me if I please could explain number four",
+          text: "Indirect Style:She claim me if I please could explain number four",
           correct: false,
         },
         {
-          text: "She asked me if I please could explain number four",
+          text: "Indirect Style:She asked me if I please could explain number four",
           correct: true,
         },
         {
-          text: "She ordered if I please could explain number four",
+          text: "Indirect Style:She ordered if I please could explain number four",
           correct: false,
         },
       ],
@@ -4768,14 +4768,14 @@ export const quizCategories = {
       question: "Direct Style: “I’m leaving tomorrow”",
       options: [
         {
-          text: "She said that she was leaving the following day",
+          text: "Indirect Style:She said that she was leaving the following day",
           correct: true,
         },
         {
-          text: "She said me that she was leaving the following day",
+          text: "Indirect Style:She said me that she was leaving the following day",
           correct: false,
         },
-        { text: "She said she was leaving today.", correct: false },
+        { text: "Indirect Style:She said she was leaving today.", correct: false },
       ],
     },
     {
@@ -4783,15 +4783,15 @@ export const quizCategories = {
         "Direct Style: “We went to the cinema and then to a Chinese restaurant”",
       options: [
         {
-          text: "She said that they had gone to the cinema and then to a Chinese restaurant.",
+          text: "Indirect Style:She said that they had gone to the cinema and then to a Chinese restaurant.",
           correct: true,
         },
         {
-          text: "She said that they gone to the cinema and then to a Chinese restaurant.",
+          text: "Indirect Style:She said that they gone to the cinema and then to a Chinese restaurant.",
           correct: false,
         },
         {
-          text: "She ordered that they gone to the cinema and then to a Chinese restaurant.",
+          text: "Indirect Style:She ordered that they gone to the cinema and then to a Chinese restaurant.",
           correct: false,
         },
       ],
@@ -4799,9 +4799,9 @@ export const quizCategories = {
     {
       question: "Direct Style: “Please get me a cup of tea”",
       options: [
-        { text: "She asked me to get her a cup of tea.", correct: true },
-        { text: "She asked me get her a cup of tea.", correct: false },
-        { text: "She asked to please get her a cup of tea.", correct: false },
+        { text: "Indirect Style:She asked me to get her a cup of tea.", correct: true },
+        { text: "Indirect Style:She asked me get her a cup of tea.", correct: false },
+        { text: "Indirect Style:She asked to please get her a cup of tea.", correct: false },
       ],
     },
     {
@@ -4815,9 +4815,9 @@ export const quizCategories = {
     {
       question: "Direct Style: “Don’t do it!”",
       options: [
-        { text: "She told me do it", correct: false },
-        { text: "She told me to do it.", correct: false },
-        { text: "She ordered me not to do it.", correct: true },
+        { text: "Indirect Style:She told me do it", correct: false },
+        { text: "Indirect Style:She told me to do it.", correct: false },
+        { text: "Indirect Style:She ordered me not to do it.", correct: true },
       ],
     },
     {
@@ -5057,9 +5057,9 @@ export const quizCategories = {
     {
       question: "Direct Style: “Where do you live?”",
       options: [
-        { text: "She said me where I lived.", correct: false },
-        { text: "She asked me where I lived.", correct: true },
-        { text: "She said me if I lived", correct: false },
+        { text: "Indirect Style:She said me where I lived.", correct: false },
+        { text: "Indirect Style:She asked me where I lived.", correct: true },
+        { text: "Indirect Style:She said me if I lived", correct: false },
       ],
     },
     {
@@ -5074,15 +5074,15 @@ export const quizCategories = {
       question: "Direct Style: “I’ll come and help you at twelve”",
       options: [
         {
-          text: "She told me that she came and help me at twelve that day.",
+          text: "Indirect Style:She told me that she came and help me at twelve that day.",
           correct: false,
         },
         {
-          text: "She said me that she came and help me at twelve that day.",
+          text: "Indirect Style:She said me that she came and help me at twelve that day.",
           correct: false,
         },
         {
-          text: "She told me that she would come and help me at twelve that day.",
+          text: "Indirect Style:She told me that she would come and help me at twelve that day.",
           correct: true,
         },
       ],
@@ -5301,13 +5301,13 @@ export const quizCategories = {
     {
       question: "Direct Style: “She got married last year”",
       options: [
-        { text: "She said she was married the previous year.", correct: false },
+        { text: "Indirect Style:She said she was married the previous year.", correct: false },
         {
-          text: "She said me that she had got married the previous year.",
+          text: "Indirect Style:She said me that she had got married the previous year.",
           correct: false,
         },
         {
-          text: "She told me that she had got married the previous year.",
+          text: "Indirect Style:She told me that she had got married the previous year.",
           correct: true,
         },
       ],
