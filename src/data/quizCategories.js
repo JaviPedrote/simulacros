@@ -4799,7 +4799,7 @@ export const quizCategories = {
     {
       question: "Direct Style: “Please get me a cup of tea”",
       options: [
-        { text: "Indirect Style:She asked me to get her a cup of tea.", correct: true },
+        { text: "She asked me to get her a cup of tea.", correct: true },
         { text: "Indirect Style:She asked me get her a cup of tea.", correct: false },
         { text: "Indirect Style:She asked to please get her a cup of tea.", correct: false },
       ],
