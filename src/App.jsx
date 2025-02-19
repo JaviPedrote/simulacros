@@ -23,13 +23,7 @@ const Quiz = () => {
   const [totalQuestionsCount, setTotalQuestionsCount] = useState(null);
   const [selectedQuestionsCount, setSelectedQuestionsCount] = useState(null);
   const [failedQuestionsCount, setFailedQuestionsCount] = useState(null);
-  
-  // Determinar el total a mostrar en la puntuación
-  const totalDisplay =
-  failedQuestionsCount ??
-  selectedQuestionsCount ??
-  totalQuestionsCount ??
-  questions.length;
+
   // Calcular la nota según las preguntas contestadas.
   useEffect(() => {
     if (questions.length > 0) {
@@ -65,7 +59,6 @@ const Quiz = () => {
     const shuffledAll = shuffleArray([...allQuestions]);
     const finalQuestions = shuffledAll.slice(0, allQuestions.length);
 
-    totalDisplay(allQuestions.length);
     setCategory(selectedCategory);
     setQuestions(finalQuestions);
     setTotalQuestionsCount(finalQuestions.length); // Guardamos el total
@@ -124,7 +117,12 @@ const Quiz = () => {
     }
   };
 
-  
+  // Determinar el total a mostrar en la puntuación
+  const totalDisplay =
+    failedQuestionsCount ??
+    selectedQuestionsCount ??
+    totalQuestionsCount ??
+    questions.length;
 
   return (
     <div className="p-6 xl:max-w-[80%] max-w-[95%] mx-auto bg-white rounded-xl shadow-md space-y-4 text-center">
