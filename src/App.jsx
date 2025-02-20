@@ -17,6 +17,7 @@ const Quiz = () => {
   const [showNext, setShowNext] = useState(false);
   const [nota, setNota] = useState(0);
   const [answered, setAnswered] = useState(false);
+  const [feedback, setFeedback] = useState(null);
 
   // Estados para los contadores de preguntas
   const [totalQuestionsCount, setTotalQuestionsCount] = useState(null);
