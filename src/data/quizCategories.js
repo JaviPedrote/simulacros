@@ -4561,8 +4561,8 @@ export const quizCategories = {
         "Selecciona la palabra que se corresponde con el fonema semivocálico /w/",
       options: [
         { text: "Quiet", correct: false },
-        { text: "Wool", correct: false },
-        { text: "Ambas son correctas", correct: true },
+        { text: "Wool", correct: true },
+        { text: "Ambas son correctas", correct: false },
       ],
     },
     {
