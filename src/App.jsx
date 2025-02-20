@@ -281,16 +281,6 @@ const Quiz = () => {
             ))}
 
           </div>
-          {feedback && (
-            <p
-              className={`mt-4 p-2 rounded ${feedback.correct
-                  ? "bg-green-200 text-green-700"
-                  : "bg-red-200 text-red-700"
-                }`}
-            >
-              {feedback.message}
-            </p>
-          )}
           {showNext && (
             <button
               onClick={nextQuestion}
