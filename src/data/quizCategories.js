@@ -43,8 +43,8 @@ export const quizCategories = {
       question:
         "La consulta SELECT * FROM res_partner dentro de la base de datos de Odoo, ¿Qué nos devuelve?",
       options: [
-        { text: "El listado de socios.", correct: false },
-        { text: "El listado de clientes.", correct: true },
+        { text: "El listado de socios.", correct: true },
+        { text: "El listado de clientes.", correct: false },
         { text: "El listado de usuarios.", correct: false },
       ],
     },
