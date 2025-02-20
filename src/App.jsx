@@ -73,21 +73,22 @@ const Quiz = () => {
     setAnswered(false);
   };
 
-  // Manejar respuesta elegida
-  const handleAnswer = (isCorrect) => {
+  const [selectedOption, setSelectedOption] = useState(null); // Para almacenar la opción seleccionada
+
+  const handleAnswer = (option) => {
     if (!answered) {
-      if (isCorrect) {
+      setSelectedOption(option); // Guardamos la opción seleccionada
+      if (option.correct) {
         setScore((prev) => prev + 1);
         setFeedback({ message: "¡Correcto!", correct: true });
       } else {
         const correctAnswer = questions[currentQuestion].options.find(
-          (option) => option.correct
+          (opt) => opt.correct
         ).text;
         setFeedback({
           message: `Respuesta correcta: ${correctAnswer}`,
           correct: false,
         });
-        // Añadir pregunta fallada
         setFailedQuestions((prev) => [...prev, questions[currentQuestion]]);
       }
       setShowNext(true);
@@ -264,24 +265,28 @@ const Quiz = () => {
               <button
                 key={index}
                 disabled={answered}
-                onClick={() => handleAnswer(option.correct)}
-                className={`${
-                  answered
-                    ? "bg-gray-100 cursor-not-allowed text-gray-500"
+                onClick={() => handleAnswer(option)}
+                className={`block w-full md:text-lg text-sm text-left p-2 rounded transition-all
+      ${answered
+                    ? option.correct
+                      ? "outline-2 outline-green-500 bg-green-100 text-green-700"
+                      : selectedOption === option
+                        ? "outline-2 outline-red-500 bg-red-100 text-red-700"
+                        : "bg-gray-100 text-gray-500"
                     : "bg-gray-100 hover:bg-gray-300 cursor-pointer"
-                } block w-full md:text-lg text-sm text-left p-2 rounded`}
+                  }`}
               >
                 {option.text}
               </button>
             ))}
+
           </div>
           {feedback && (
             <p
-              className={`mt-4 p-2 rounded ${
-                feedback.correct
+              className={`mt-4 p-2 rounded ${feedback.correct
                   ? "bg-green-200 text-green-700"
                   : "bg-red-200 text-red-700"
-              }`}
+                }`}
             >
               {feedback.message}
             </p>
