@@ -13,7 +13,6 @@ const Quiz = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [showScore, setShowScore] = useState(false);
-  const [feedback, setFeedback] = useState(null);
   const [shuffledOptions, setShuffledOptions] = useState([]);
   const [showNext, setShowNext] = useState(false);
   const [nota, setNota] = useState(0);
