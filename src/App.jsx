@@ -133,9 +133,9 @@ const Quiz = () => {
       {!category ? (
         <div>
           <div>
-            <div className="mt-4 ml-2 bg-red-500 text-white px-2 py-1 md:px-4 md:py-2 md:text-md rounded hover:bg-red-700 cursor-pointer">
-              <a href="https://www.kodedev.tech/">Volver</a>
-            </div>
+
+            <a href="https://www.kodedev.tech/"><div className=" group-[link]: mt-4 ml-2 bg-red-500 text-white px-2 py-1 md:px-4 md:py-2 md:text-md rounded hover:bg-red-700 cursor-pointer">Volver</div></a>
+
             <h2 className="mt-5 font-bold">Test 40 preguntas</h2>
             <button
               className="mt-4 bg-blue-500 text-white px-2 py-1 md:px-4 md:py-2 md:text-md rounded hover:bg-blue-700 cursor-pointer"
